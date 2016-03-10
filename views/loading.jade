@@ -1,0 +1,16 @@
+//
+   Created by Administrator on 2016/3/10.
+
+extends layout
+
+block content
+    marquee(behavior="scroll",contenteditable="true",onstart="this.firstChild.innerHTML+=this.firstChild.innerHTML;",scrollamount="3",width="100")
+        span(unselectable="on") ■■■■■■■
+    script(language="javascript",type="text/javascript").
+        function scroll(obj){
+        var tmp = (obj.scrollLeft)++;
+        if (obj.scrollLeft==tmp){ obj.innerHTML += obj.innerHTML;}
+        if (obj.scrollLeft>=obj.firstChild.offsetWidth) {
+            obj.scrollLeft=0;
+        }}
+        setInterval("scroll(document.getElementById('scrollobj'))",20);
